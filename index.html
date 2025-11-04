@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>My Love ❤️</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google-adsense-account" content="ca-pub-4704501585981299">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap');
+
+    *,
+    ::before,
+    ::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Quicksand", sans-serif;
+      background: linear-gradient(to bottom right, #ffecec, #fff5f5, #ffebeb);
+      color: #222;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 1rem;
+      overflow: hidden;
+      background-image: url('https://i.postimg.cc/sDMF0hrr/IMG-20251104-WA0002.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+
+    .envelope {
+      --duration: 1000ms;
+      --envelope-width: 320px;
+      --envelope-height: 190px;
+      --envelope-clr-bg: #d14d44;
+      --envelope-clr-txt: #fff;
+      --letter-clr-bg: rgba(255, 255, 255, 0.95);
+      --letter-clr-text: #b10000;
+      --letter-font-size: 1rem;
+      position: relative;
+      height: var(--envelope-height);
+      width: var(--envelope-width);
+      perspective: 1000px;
+      cursor: pointer;
+    }
+
+    @media (min-width: 720px) {
+      .envelope {
+        --envelope-width: 600px;
+        --envelope-height: 350px;
+        --letter-font-size: 1.4rem;
+      }
+    }
+
+    .envelope::after {
+      content: "";
+      position: absolute;
+      top: 110%;
+      left: 50%;
+      width: 85%;
+      height: 40px;
+      transform: translateX(-50%);
+      border-radius: 50%;
+      background: rgba(56, 6, 6, 0.4);
+      filter: blur(15px);
+    }
+
+    .envelope:hover .envelope-inner {
+      transform: rotateY(180deg);
+    }
+
+    .envelope-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: var(--duration) ease-in-out;
+      transform-style: preserve-3d;
+      display: grid;
+    }
+
+    .envelope-front,
+    .envelope-back {
+      grid-area: 1/1;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 10px;
+    }
+
+    .envelope-front {
+      background-color: var(--envelope-clr-bg);
+      color: var(--envelope-clr-txt);
+      display: grid;
+      place-content: center;
+    }
+
+    .envelope-front .address {
+      text-align: left;
+      font-size: 1rem;
+    }
+
+    .envelope-back {
+      transform: rotateY(180deg);
+      background: var(--envelope-clr-bg);
+      position: relative;
+    }
+
+    .top-fold {
+      position: absolute;
+      inset: 0;
+      background-color: #c04944;
+      clip-path: polygon(0% 0%, 50% 55%, 100% 0%);
+      transform-origin: top;
+    }
+
+    .letter {
+      position: absolute;
+      bottom: 5px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90%;
+      height: calc(var(--envelope-height) * 1.8);
+      background: var(--letter-clr-bg);
+      color: var(--letter-clr-text);
+      font-size: var(--letter-font-size);
+      border-radius: 10px;
+      padding: 2em 1.5em;
+      text-align: center;
+      line-height: 1.5;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      overflow-y: auto;
+      font-weight: bold;
+    }
+
+    .letter p {
+      color: #8b0000;
+      font-weight: 700;
+      text-shadow: 1px 1px 2px #fff;
+    }
+
+    .highlight {
+      color: #b30000;
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-shadow: 1px 1px 3px #fff;
+    }
+
+    .custom-image {
+      width: 100px;
+      border-radius: 10px;
+    }
+
+    .custom-image2 {
+      width: 150px;
+      border-radius: 12px;
+    }
+
+    /* Corazones del fondo */
+    #hearts-container {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 18px;
+      animation: grow-explode 2s linear forwards;
+    }
+
+    .heart-shape {
+      position: absolute;
+      width: 100%; height: 100%;
+      background: rgb(255, 0, 140);
+      transform: rotate(-45deg);
+      border-radius: 60% 60% 60% 60% / 70% 70% 50% 50%;
+    }
+
+    .heart-shape::before,
+    .heart-shape::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: rgb(255, 0, 170);
+      border-radius: 50%;
+    }
+
+    .heart-shape::before { top: -50%; left: 0; }
+    .heart-shape::after { left: 50%; top: 0; }
+
+    @keyframes grow-explode {
+      0% { transform: scale(0.7); opacity: 0.7; }
+      70% { transform: scale(1.2); opacity: 1; }
+      100% { transform: scale(1.7); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div id="hearts-container"></div>
+  <audio id="audio-love" src="https://github.com/codeninja543/codeninja5433/raw/refs/heads/main/KUROMIGreedy%20GreedyMV%20-Short%20ver.-.mp3" autoplay loop hidden></audio>
+
+  <div class="envelope">
+    <div class="envelope-inner">
+      <div class="envelope-front">
+        <div class="address">
+          <p><span>Para:</span> <span><strong>Mi bella dama</strong></span></p>
+          <p><span>De:</span> <span><strong>Tu tonoto</strong></span></p>
+        </div>
+      </div>
+      <div class="envelope-back">
+        <div class="top-fold"></div>
+        <div class="letter">
+          <img src="https://img.freepik.com/vector-premium/pulgar-dedos-imprimir-marca-huella-dactilar-amor-corazon_53500-1839.jpg" class="custom-image">
+          <p>
+            Mi bella dama,<br><br>
+            En tu día especial, recordé el eclipse lunar total que ocurrió el 7 de noviembre de 1957, cuando la Luna se puso roja. Que este símbolo de transformación marque el inicio de un año lleno de experiencias brillantes y asombrosas.<br><br>
+            Te deseo toda la luz para alcanzar tus sueños. Cuenta conmigo, somos cómplices en esta vida y en las siguientes.<br><br>
+            ¡Que tengas un cumpleaños increíble!<br><br>
+            Con un fuerte abrazo.<br>
+            Atte: Tu tonoto
+            <span class="highlight">💖 ¡Te quiero mucho! 💖</span>
+          </p>
+          <img src="https://i.postimg.cc/cJMKvJX9/IMG-20251104-WA0011.jpg" class="custom-image2">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('click', function() {
+      const audio = document.getElementById('audio-love');
+      if (audio.paused) audio.play();
+    }, { once: true });
+
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      const size = 16 + Math.random() * 12;
+      heart.style.width = size + 'px';
+      heart.style.height = (size * 0.9) + 'px';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.top = Math.random() * 100 + 'vh';
+      const shape = document.createElement('div');
+      shape.className = 'heart-shape';
+      heart.appendChild(shape);
+      document.getElementById('hearts-container').appendChild(heart);
+      setTimeout(() => heart.remove(), 2000);
+      setTimeout(createHeart, 150);
+    }
+    for (let i = 0; i < 15; i++) setTimeout(createHeart, i * 150);
+  </script>
+</body>
+</html>
